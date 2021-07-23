@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AniAPI.NET.Helpers
 {
-    public class HttpHelper
+    internal class HttpHelper
     {
         private string _protocol;
         private string _hostName;

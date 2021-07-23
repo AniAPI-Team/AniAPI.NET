@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace AniAPI.NET.Helpers
 {
-    public class OAuthHelper
+    internal class OAuthHelper
     {
         private readonly string _authPath = "https://api.aniapi.com/v1/oauth";
         private readonly string _codePath = "https://api.aniapi.com/v1/oauth/token";
