@@ -42,4 +42,4 @@ PM> Install-Package AniAPI.NET
 
 ## Documentation
 
-See [project wiki]().
+See [project wiki](https://github.com/AniAPI-Team/AniAPI.NET/wiki).
