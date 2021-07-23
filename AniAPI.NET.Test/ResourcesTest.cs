@@ -21,9 +21,9 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Get_Genres()
+        public async void Get_Genres()
         {
-            var result = AniAPI.Instance.GetGenres();
+            var result = await AniAPI.Instance.GetGenres();
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<GenresResource>>(result);
@@ -35,9 +35,9 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Get_Localizations()
+        public async void Get_Localizations()
         {
-            var result = AniAPI.Instance.GetLocalizations();
+            var result = await AniAPI.Instance.GetLocalizations();
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<LocalizationsResource>>(result);

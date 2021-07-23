@@ -86,89 +86,89 @@ namespace AniAPI.NET
 
         #region Implementation
 
-        public APIResponse<Anime> GetAnime(long id)
+        public async Task<APIResponse<Anime>> GetAnime(long id)
         {
-            return _httpHelper.UnauthorizedRequest<Anime>($"anime/{id}", HttpMethod.Get);
+            return await _httpHelper.UnauthorizedRequest<Anime>($"anime/{id}", HttpMethod.Get);
         }
 
-        public APIResponse<Pagination<Anime>> GetAnimeList(AnimeFilter filter)
+        public async Task<APIResponse<Pagination<Anime>>> GetAnimeList(AnimeFilter filter)
         {
-            return _httpHelper.UnauthorizedRequest<Pagination<Anime>>($"anime/{filter.ToQueryString()}", HttpMethod.Get);
+            return await _httpHelper.UnauthorizedRequest<Pagination<Anime>>($"anime/{filter.ToQueryString()}", HttpMethod.Get);
         }
 
-        public APIResponse<Episode> GetEpisode(long id)
+        public async Task<APIResponse<Episode>> GetEpisode(long id)
         {
-            return _httpHelper.UnauthorizedRequest<Episode>($"episode/{id}", HttpMethod.Get);
+            return await _httpHelper.UnauthorizedRequest<Episode>($"episode/{id}", HttpMethod.Get);
         }
 
-        public APIResponse<Pagination<Episode>> GetEpisodeList(EpisodeFilter filter)
+        public async Task<APIResponse<Pagination<Episode>>> GetEpisodeList(EpisodeFilter filter)
         {
-            return _httpHelper.UnauthorizedRequest<Pagination<Episode>>($"episode/{filter.ToQueryString()}", HttpMethod.Get);
+            return await _httpHelper.UnauthorizedRequest<Pagination<Episode>>($"episode/{filter.ToQueryString()}", HttpMethod.Get);
         }
 
-        public APIResponse<Song> GetSong(long id)
+        public async Task<APIResponse<Song>> GetSong(long id)
         {
-            return _httpHelper.UnauthorizedRequest<Song>($"song/{id}", HttpMethod.Get);
+            return await _httpHelper.UnauthorizedRequest<Song>($"song/{id}", HttpMethod.Get);
         }
 
-        public APIResponse<Pagination<Song>> GetSongList(SongFilter filter)
+        public async Task<APIResponse<Pagination<Song>>> GetSongList(SongFilter filter)
         {
-            return _httpHelper.UnauthorizedRequest<Pagination<Song>>($"song/{filter.ToQueryString()}", HttpMethod.Get);
+            return await _httpHelper.UnauthorizedRequest<Pagination<Song>>($"song/{filter.ToQueryString()}", HttpMethod.Get);
         }
 
-        public APIResponse<GenresResource> GetGenres(string version = "1.0")
+        public async Task<APIResponse<GenresResource>> GetGenres(string version = "1.0")
         {
-            return _httpHelper.UnauthorizedRequest<GenresResource>($"resources/{version}/0", HttpMethod.Get);
+            return await _httpHelper.UnauthorizedRequest<GenresResource>($"resources/{version}/0", HttpMethod.Get);
         }
 
-        public APIResponse<LocalizationsResource> GetLocalizations(string version = "1.0")
+        public async Task<APIResponse<LocalizationsResource>> GetLocalizations(string version = "1.0")
         {
-            return _httpHelper.UnauthorizedRequest<LocalizationsResource>($"resources/{version}/1", HttpMethod.Get);
+            return await _httpHelper.UnauthorizedRequest<LocalizationsResource>($"resources/{version}/1", HttpMethod.Get);
         }
 
-        public APIResponse<User> GetUser(long id)
+        public async Task<APIResponse<User>> GetUser(long id)
         {
-            return _httpHelper.UnauthorizedRequest<User>($"user/{id}", HttpMethod.Get);
+            return await _httpHelper.UnauthorizedRequest<User>($"user/{id}", HttpMethod.Get);
         }
 
-        public APIResponse<Pagination<User>> GetUserList(UserFilter filter)
+        public async Task<APIResponse<Pagination<User>>> GetUserList(UserFilter filter)
         {
-            return _httpHelper.UnauthorizedRequest<Pagination<User>>($"user/{filter.ToQueryString()}", HttpMethod.Get);
+            return await _httpHelper.UnauthorizedRequest<Pagination<User>>($"user/{filter.ToQueryString()}", HttpMethod.Get);
         }
 
-        public APIResponse<User> UpdateUser(User model)
+        public async Task<APIResponse<User>> UpdateUser(User model)
         {
-            return _httpHelper.AuthorizedRequest<User>("user", HttpMethod.Post, JsonConvert.SerializeObject(model));
+            return await _httpHelper.AuthorizedRequest<User>("user", HttpMethod.Post, JsonConvert.SerializeObject(model));
         }
 
-        public APIResponse<string> DeleteUser(long id)
+        public async Task<APIResponse<string>> DeleteUser(long id)
         {
-            return _httpHelper.AuthorizedRequest<string>($"user/{id}", HttpMethod.Delete);
+            return await _httpHelper.AuthorizedRequest<string>($"user/{id}", HttpMethod.Delete);
         }
 
-        public APIResponse<UserStory> GetUserStory(long id)
+        public async Task<APIResponse<UserStory>> GetUserStory(long id)
         {
-            return _httpHelper.AuthorizedRequest<UserStory>($"user_story/{id}", HttpMethod.Get);
+            return await _httpHelper.AuthorizedRequest<UserStory>($"user_story/{id}", HttpMethod.Get);
         }
 
-        public APIResponse<Pagination<UserStory>> GetUserStoryList(UserStoryFilter filter)
+        public async Task<APIResponse<Pagination<UserStory>>> GetUserStoryList(UserStoryFilter filter)
         {
-            return _httpHelper.AuthorizedRequest<Pagination<UserStory>>($"user_story/{filter.ToQueryString()}", HttpMethod.Get);
+            return await _httpHelper.AuthorizedRequest<Pagination<UserStory>>($"user_story/{filter.ToQueryString()}", HttpMethod.Get);
         }
 
-        public APIResponse<UserStory> CreateUserStory(UserStory model)
+        public async Task<APIResponse<UserStory>> CreateUserStory(UserStory model)
         {
-            return _httpHelper.AuthorizedRequest<UserStory>("user_story", HttpMethod.Put, JsonConvert.SerializeObject(model));
+            return await _httpHelper.AuthorizedRequest<UserStory>("user_story", HttpMethod.Put, JsonConvert.SerializeObject(model));
         }
 
-        public APIResponse<UserStory> UpdateUserStory(UserStory model)
+        public async Task<APIResponse<UserStory>> UpdateUserStory(UserStory model)
         {
-            return _httpHelper.AuthorizedRequest<UserStory>("user_story", HttpMethod.Post, JsonConvert.SerializeObject(model));
+            return await _httpHelper.AuthorizedRequest<UserStory>("user_story", HttpMethod.Post, JsonConvert.SerializeObject(model));
         }
 
-        public APIResponse<string> DeleteUserStory(long id)
+        public async Task<APIResponse<string>> DeleteUserStory(long id)
         {
-            return _httpHelper.AuthorizedRequest<string>($"user_story/{id}", HttpMethod.Delete);
+            return await _httpHelper.AuthorizedRequest<string>($"user_story/{id}", HttpMethod.Delete);
         }
 
         #endregion

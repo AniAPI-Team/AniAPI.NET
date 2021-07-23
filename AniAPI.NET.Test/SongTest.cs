@@ -22,11 +22,11 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Get_Song()
+        public async void Get_Song()
         {
             long id = 1;
 
-            var result = AniAPI.Instance.GetSong(id);
+            var result = await AniAPI.Instance.GetSong(id);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<Song>>(result);
@@ -40,7 +40,7 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Get_Song_List()
+        public async void Get_Song_List()
         {
             SongFilter filter = new SongFilter()
             {
@@ -53,7 +53,7 @@ namespace AniAPI.NET.Test
                 }
             };
 
-            var result = AniAPI.Instance.GetSongList(filter);
+            var result = await AniAPI.Instance.GetSongList(filter);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<Pagination<Song>>>(result);

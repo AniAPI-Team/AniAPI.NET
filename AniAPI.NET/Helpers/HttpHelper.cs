@@ -30,7 +30,7 @@ namespace AniAPI.NET.Helpers
 
         private string endpoint => $"{_protocol}://{_hostName}/{_version}";
 
-        private APIResponse<T> executeRequest<T>(string path, HttpMethod method, string body = null, bool auth = false)
+        private async Task<APIResponse<T>> executeRequest<T>(string path, HttpMethod method, string body = null, bool auth = false)
         {
             try
             {
@@ -48,14 +48,14 @@ namespace AniAPI.NET.Helpers
                     request.Content = new StringContent(body, Encoding.UTF8, "application/json");
                 }
 
-                HttpResponseMessage response = _httpClient.SendAsync(request).Result;
+                HttpResponseMessage response = await _httpClient.SendAsync(request);
 
                 if (!response.IsSuccessStatusCode)
                 {
                     throw new Exception(response.StatusCode.ToString());
                 }
 
-                string responseContent = response.Content.ReadAsStringAsync().Result;
+                string responseContent = await response.Content.ReadAsStringAsync();
 
                 APIResponse<T> result = JsonConvert.DeserializeObject<APIResponse<T>>(responseContent);
 
@@ -87,19 +87,19 @@ namespace AniAPI.NET.Helpers
             _jwt = jwt;
         }
 
-        public APIResponse<T> UnauthorizedRequest<T>(string path, HttpMethod method)
+        public async Task<APIResponse<T>> UnauthorizedRequest<T>(string path, HttpMethod method)
         {
-            return executeRequest<T>(path, method);
+            return await executeRequest<T>(path, method);
         }
 
-        public APIResponse<T> AuthorizedRequest<T>(string path, HttpMethod method, string body = null)
+        public async Task<APIResponse<T>> AuthorizedRequest<T>(string path, HttpMethod method, string body = null)
         {
             if (string.IsNullOrEmpty(_jwt))
             {
                 throw new ArgumentException("You need to login to perform this request", "JWT");
             }
 
-            return executeRequest<T>(path, method, body, true);
+            return await executeRequest<T>(path, method, body, true);
         }
     }
 }

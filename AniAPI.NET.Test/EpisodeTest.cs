@@ -22,11 +22,11 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Get_Episode()
+        public async void Get_Episode()
         {
             long id = 1;
 
-            var result = AniAPI.Instance.GetEpisode(id);
+            var result = await AniAPI.Instance.GetEpisode(id);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<Episode>>(result);
@@ -40,7 +40,7 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Get_Episode_List()
+        public async void Get_Episode_List()
         {
             EpisodeFilter filter = new EpisodeFilter()
             {
@@ -53,7 +53,7 @@ namespace AniAPI.NET.Test
                 }
             };
 
-            var result = AniAPI.Instance.GetEpisodeList(filter);
+            var result = await AniAPI.Instance.GetEpisodeList(filter);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<Pagination<Episode>>>(result);

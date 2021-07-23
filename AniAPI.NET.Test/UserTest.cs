@@ -30,11 +30,11 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Get_User()
+        public async void Get_User()
         {
             long id = 1;
 
-            var result = AniAPI.Instance.GetUser(id);
+            var result = await AniAPI.Instance.GetUser(id);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<User>>(result);
@@ -48,7 +48,7 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Get_User_List()
+        public async void Get_User_List()
         {
             UserFilter filter = new UserFilter()
             {
@@ -59,7 +59,7 @@ namespace AniAPI.NET.Test
                 }
             };
 
-            var result = AniAPI.Instance.GetUserList(filter);
+            var result = await AniAPI.Instance.GetUserList(filter);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<Pagination<User>>>(result);
@@ -71,7 +71,7 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Update_User()
+        public async void Update_User()
         {
             User model = new User()
             {
@@ -82,7 +82,7 @@ namespace AniAPI.NET.Test
 
             AniAPI.Instance.ManualJWT(this.configuration["JWT"]);
 
-            var result = AniAPI.Instance.UpdateUser(model);
+            var result = await AniAPI.Instance.UpdateUser(model);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<User>>(result);

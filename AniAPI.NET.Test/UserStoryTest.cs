@@ -30,13 +30,13 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Get_UserStory()
+        public async void Get_UserStory()
         {
             long id = 1;
 
             AniAPI.Instance.ManualJWT(this.configuration["JWT"]);
 
-            var result = AniAPI.Instance.GetUserStory(id);
+            var result = await AniAPI.Instance.GetUserStory(id);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<UserStory>>(result);
@@ -50,7 +50,7 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Get_UserStory_List()
+        public async void Get_UserStory_List()
         {
             UserStoryFilter filter = new UserStoryFilter()
             {
@@ -64,7 +64,7 @@ namespace AniAPI.NET.Test
 
             AniAPI.Instance.ManualJWT(this.configuration["JWT"]);
 
-            var result = AniAPI.Instance.GetUserStoryList(filter);
+            var result = await AniAPI.Instance.GetUserStoryList(filter);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<Pagination<UserStory>>>(result);
@@ -76,7 +76,7 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Create_UserStory()
+        public async void Create_UserStory()
         {
             UserStory model = new UserStory()
             {
@@ -88,7 +88,7 @@ namespace AniAPI.NET.Test
 
             AniAPI.Instance.ManualJWT(this.configuration["JWT"]);
 
-            var result = AniAPI.Instance.CreateUserStory(model);
+            var result = await AniAPI.Instance.CreateUserStory(model);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<UserStory>>(result);
@@ -100,7 +100,7 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
-        public void Update_UserStory()
+        public async void Update_UserStory()
         {
             UserStory model = new UserStory()
             {
@@ -113,7 +113,7 @@ namespace AniAPI.NET.Test
 
             AniAPI.Instance.ManualJWT(this.configuration["JWT"]);
 
-            var result = AniAPI.Instance.UpdateUserStory(model);
+            var result = await AniAPI.Instance.UpdateUserStory(model);
 
             Assert.NotNull(result);
             Assert.IsType<APIResponse<UserStory>>(result);
