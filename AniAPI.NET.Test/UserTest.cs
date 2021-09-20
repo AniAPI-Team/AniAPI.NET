@@ -30,6 +30,22 @@ namespace AniAPI.NET.Test
         }
 
         [Fact]
+        public async void Get_Me()
+        {
+            AniAPI.Instance.ManualJWT(this.configuration["JWT"]);
+
+            var result = await AniAPI.Instance.GetMe();
+
+            Assert.NotNull(result);
+            Assert.IsType<APIResponse<User>>(result);
+
+            Assert.True(result.StatusCode == 200);
+            Assert.NotNull(result.Data);
+
+            output.WriteLine(JsonConvert.SerializeObject(result));
+        }
+
+        [Fact]
         public async void Get_User()
         {
             long id = 1;

@@ -13,7 +13,8 @@ namespace AniAPI.NET.Interfaces
     {
         #region OAuth
 
-
+        public Task Login();
+        public Task<APIResponse<User>> GetMe();
 
         #endregion
 

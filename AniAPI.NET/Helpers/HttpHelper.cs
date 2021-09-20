@@ -1,5 +1,6 @@
 ﻿using AniAPI.NET.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +58,17 @@ namespace AniAPI.NET.Helpers
 
                 string responseContent = await response.Content.ReadAsStringAsync();
 
-                APIResponse<T> result = JsonConvert.DeserializeObject<APIResponse<T>>(responseContent);
+                APIResponse<T> result = null;
+
+                try
+                {
+                    result = JsonConvert.DeserializeObject<APIResponse<T>>(responseContent);
+                }
+                catch
+                {
+                    JObject error = JObject.Parse(responseContent);
+                    throw new InvalidOperationException(error.Value<string>("data"));
+                }
 
                 if(result.StatusCode != 200)
                 {

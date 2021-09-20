@@ -62,9 +62,16 @@ namespace AniAPI.NET
             _oAuthHelper = new OAuthHelper(clientId, clientSecret, redirectUri);
         }
 
+        public void ManualJWT(string jwt)
+        {
+            _httpHelper.SetJWT(jwt);
+        }
+
+        #region Implementation
+
         public async Task Login()
         {
-            if(_oAuthHelper == null)
+            if (_oAuthHelper == null)
             {
                 throw new Exception("OAuth not setted up!");
             }
@@ -79,12 +86,10 @@ namespace AniAPI.NET
             _httpHelper.SetJWT(token);
         }
 
-        public void ManualJWT(string jwt)
+        public async Task<APIResponse<User>> GetMe()
         {
-            _httpHelper.SetJWT(jwt);
+            return await _httpHelper.AuthorizedRequest<User>($"auth/me", HttpMethod.Get);
         }
-
-        #region Implementation
 
         public async Task<APIResponse<Anime>> GetAnime(long id)
         {
