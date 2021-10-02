@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
       <PackageId>AniAPI.NET</PackageId>
-      <Version>1.0.2</Version>
+      <Version>1.0.3</Version>
       <Authors>Dazorn96</Authors>
       <Company>AnIAPI</Company>
-      <PackageReleaseNotes>Fixed a bug and added GetMe method</PackageReleaseNotes>
+      <PackageReleaseNotes>Added support for NSFW anime filter</PackageReleaseNotes>
       <PackageTags>aniapi anime api wrapper netcore</PackageTags>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

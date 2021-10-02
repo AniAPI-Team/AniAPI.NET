@@ -34,7 +34,7 @@ namespace AniAPI.NET.Filters
 
             if (Synced != null)
             {
-                Parameters.Add("synced", Synced.Value ? "1" : "0");
+                Parameters.Add("synced", Synced.Value ? "true" : "false");
             }
         }
     }

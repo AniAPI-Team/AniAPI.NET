@@ -19,6 +19,7 @@ namespace AniAPI.NET.Filters
         public int? Year { get; set; }
         public AnimeSeasonEnum? Season { get; set; }
         public string[] Genres { get; set; }
+        public bool NSFW { get; set; } = true;
 
         protected override void FillQueryParameters()
         {
@@ -61,6 +62,8 @@ namespace AniAPI.NET.Filters
             {
                 Parameters.Add("genres", String.Join(',', Genres.Select(x => HttpUtility.UrlEncode(x))));
             }
+
+            Parameters.Add("nsfw", NSFW ? "true" : "false");
         }
     }
 }
