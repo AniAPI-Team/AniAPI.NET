@@ -1,5 +1,5 @@
 [![Build badge](https://img.shields.io/badge/build-passing-green)](#)
-[![Nuget badge](https://img.shields.io/badge/nuget-v1.0.1-blue)](https://www.nuget.org/packages/AniAPI.NET/1.0.1)
+[![Nuget badge](https://img.shields.io/badge/nuget-v1.1.1-blue)](https://www.nuget.org/packages/AniAPI.NET/1.1.1)
 
 # AniAPI.NET
 
@@ -25,20 +25,6 @@ PM> Install-Package AniAPI.NET
 ```
 > dotnet add package AniAPI.NET
 ```
-
-## Changelog
-
-### 23.07.2021 - Version 1.0.1 (latest)
-
-#### Features
-
-* Anime
-* Episode
-* Song
-* Resource
-* User
-* UserStory
-* OAuth
 
 ## Documentation
 

@@ -1,18 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-      <PackageId>AniAPI.NET</PackageId>
-      <Version>1.0.3</Version>
-      <Authors>Dazorn96</Authors>
-      <Company>AnIAPI</Company>
-      <PackageReleaseNotes>Added support for NSFW anime filter</PackageReleaseNotes>
-      <PackageTags>aniapi anime api wrapper netcore</PackageTags>
-      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <PackageId>AniAPI.NET</PackageId>
+        <Version>1.1.1</Version>
+        <Authors>Dazorn96</Authors>
+        <Company>AnIAPI</Company>
+        <PackageReleaseNotes>Updated to AniAPI version 1.1.0</PackageReleaseNotes>
+        <PackageTags>aniapi anime api wrapper netcore</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageIcon>aniapi_icon_dark.png</PackageIcon>
+        <PackageProjectUrl>https://github.com/AniAPI-Team/AniAPI.NET</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Images\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="Images\aniapi_icon_dark.png" Pack="true" PackagePath="\" />
+        <None Include="../README.md" Pack="true" PackagePath="\" />
+        <None Include="../LICENSE" Pack="true" PackagePath="" />
+    </ItemGroup>
 
 </Project>

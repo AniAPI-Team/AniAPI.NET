@@ -24,8 +24,14 @@ namespace AniAPI.NET.Models
         [JsonProperty("video")]
         public string Video { get; set; }
 
-        [JsonProperty("source")]
-        public string Source { get; set; }
+        [JsonProperty("quality")]
+        public string Quality { get; set; }
+
+        [JsonProperty("format")]
+        public string Format { get; set; }
+
+        [JsonProperty("is_dub")]
+        public bool IsDub { get; set; }
 
         [JsonProperty("locale")]
         public string Locale { get; set; }
