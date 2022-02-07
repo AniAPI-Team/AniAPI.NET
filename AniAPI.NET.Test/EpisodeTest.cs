@@ -44,8 +44,8 @@ namespace AniAPI.NET.Test
         {
             EpisodeFilter filter = new EpisodeFilter()
             {
-                AnimeId = 1,
-                Source = "gogoanime",
+                AnimeId = 11,
+                IsDub = true,
                 Locale = "en",
                 Sort = new Dictionary<string, SortDirectionEnum>()
                 {

@@ -11,7 +11,7 @@ namespace AniAPI.NET.Filters
     {
         public long? AnimeId { get; set; }
         public int? Number { get; set; }
-        public string Source { get; set; }
+        public bool? IsDub { get; set; }
         public string Locale { get; set; }
 
         protected override void FillQueryParameters()
@@ -26,9 +26,9 @@ namespace AniAPI.NET.Filters
                 Parameters.Add("number", Number.ToString());
             }
 
-            if (!string.IsNullOrEmpty(Source))
+            if (IsDub != null)
             {
-                Parameters.Add("source", Source);
+                Parameters.Add("is_dub", IsDub.Value ? "true" : "false");
             }
 
             if (!string.IsNullOrEmpty(Locale))

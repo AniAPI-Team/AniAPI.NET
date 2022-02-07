@@ -1,5 +1,5 @@
 [![Build badge](https://img.shields.io/badge/build-passing-green)](#)
-[![Nuget badge](https://img.shields.io/badge/nuget-v1.1.1-blue)](https://www.nuget.org/packages/AniAPI.NET/1.1.1)
+[![Nuget badge](https://img.shields.io/badge/nuget-v1.1.2-blue)](https://www.nuget.org/packages/AniAPI.NET/1.1.2)
 
 # AniAPI.NET
 

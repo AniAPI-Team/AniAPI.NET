@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <PackageId>AniAPI.NET</PackageId>
-        <Version>1.1.1</Version>
+        <Version>1.1.2</Version>
         <Authors>Dazorn96</Authors>
         <Company>AnIAPI</Company>
         <PackageReleaseNotes>Updated to AniAPI version 1.1.0</PackageReleaseNotes>
